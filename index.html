@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en" >
+    <meta charset="UTF-8">
+    <title>New</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="angular.min.js"></script>
+    <script src="app.module.js"></script>
+    <script src="items-table/items-table.module.js"></script>
+    <script src="items-table/items-table.component.js"></script>
+    <script src="popup-button/popup-button.module.js"></script>
+    <script src="popup-button/popup-button.component.js"></script>
+    <script src="container/container.module.js"></script>
+    <script src="container/container.component.js"></script>
+</head>
+<body>
+    <h1>Test</h1>
+
+    <my-container>
+        <!--<div>
+            <a class="button" href="#flex-container" ng-click="openPopup()">Pop up</a>
+        </div>-->
+        <popup-button ng-click="containerCtrl.openPopup()"></popup-button>
+        <items-table></items-table>
+
+        <div> Status: {{  }}</div>
+
+        <!-- PopUp Window -->
+        <div id="flex-container" ng-if="ctrl.status">
+            <div id="popup">
+                <header>
+                    <div id="logo">
+                        <span>&#9884;</span> Test Popup
+                    </div>
+                </header>
+                <items-table></items-table>
+                <div id="clear"></div>
+                <footer>
+                    <ul>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Order</a></li>
+                        <li><a href="#">Contacts</a></li>
+                    </ul>
+                </footer>
+                <div class="close_popup" ng-click="closePopup()">&#9746;</div>
+            </div>
+
+            <div id="overlay"></div>
+        </div>
+    </my-container>
+
+
+</body>
+</html>

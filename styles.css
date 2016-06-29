@@ -1,0 +1,157 @@
+body {
+    overflow: hidden;
+    font-family: "Century Gothic", sans-serif;
+}
+h1 {
+
+}
+div a.button {
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 10px;
+    border: solid 1px #482c23;
+    border-radius: 5px;
+    padding: 10px;
+    color: #482c23;
+    font-weight: bold;
+}
+div a.button:hover {
+    font-weight: bold;
+    background-color: #a4f1ec;
+    color: #482c23;
+}
+div a.button:active {
+    font-weight: bold;
+    background-color: #482c23;
+    color: #fff;
+}
+
+/****************************** TABLE STYLES ***************************/
+.content {
+    max-height: 470px;
+    overflow: auto;
+}
+.content table, th, td {
+    border: 1px solid #482c23;
+}
+.content {
+    border-collapse: collapse;
+}
+.content th, td {
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+.second {
+    width: 10em;
+}
+.third {
+    width: 15em;
+}
+.content td {
+    max-width: 10em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.content td:hover {
+    /* overflow: visible;
+     position: absolute;*/
+    /* text-overflow: clip;
+     white-space: normal;
+     word-break: break-all;*/
+
+}
+
+
+/********************* POPUP STYLES **************************/
+#flex-container {
+    display: flex; /*flex*/
+    flex-direction: row;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    overflow: hidden;
+}
+#popup {
+    margin: auto;
+    width: 500px;
+    min-width: 300px;
+    position: relative;
+    max-height: 590px;
+    overflow: hidden;
+    z-index: 1000;
+    border: 1px solid  #482c23;
+    border-radius: 2px;
+    padding: 20px;
+    background: #fff;
+}
+#logo {
+    font-weight: bold;
+    font-size: 120%;
+    color: #482c23;
+    height: 50px;
+}
+#logo span{
+    font-size: 150%;
+}
+#popup footer {
+    height: 65px;
+    padding-top: 10px;
+}
+#popup footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#popup footer ul li {
+    float: left;
+}
+#popup footer ul a {
+    text-decoration: none;
+    display: block;
+    box-sizing: border-box;
+    margin: 10px;
+    border: solid 1px #482c23;
+    border-radius: 5px;
+    padding: 10px;
+    color: #482c23;
+    font-weight: bold;
+}
+#popup footer ul a:hover {
+    font-weight: bold;
+    background-color: #a4f1ec;
+    color: #482c23;
+}
+#popup footer ul a:active {
+    font-weight: bold;
+    background-color: #482c23;
+    color: #fff;
+}
+#clear {
+    clear: left;
+}
+.close_popup {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 150%;
+}
+#overlay {
+    background: #482c23;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.4;
+    z-index: 999;
+    display: block;
+}
