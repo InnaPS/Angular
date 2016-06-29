@@ -1,6 +1,6 @@
 'use strict';
 
-/*angular.
+angular.
     module('itemsTable').
     component('itemsTable', {
         templateUrl: 'items-table/items-table.template.html',
@@ -22,9 +22,10 @@
                 }
             ];
         }
-});*/
+});
 
 
+/*
 angular.
     module('myApp').
     component('itemsTable', {
@@ -73,5 +74,6 @@ angular.
             ];
         }
     });
+*/
 
 

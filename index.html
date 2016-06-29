@@ -17,16 +17,14 @@
     <h1>Test</h1>
 
     <my-container>
-        <!--<div>
-            <a class="button" href="#flex-container" ng-click="openPopup()">Pop up</a>
-        </div>-->
+
         <popup-button ng-click="containerCtrl.openPopup()"></popup-button>
         <items-table></items-table>
 
         <div> Status: {{  }}</div>
 
         <!-- PopUp Window -->
-        <div id="flex-container" ng-if="ctrl.status">
+        <div id="flex-container" ng-if="flag">
             <div id="popup">
                 <header>
                     <div id="logo">
