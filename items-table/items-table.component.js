@@ -6,8 +6,8 @@ angular.
         return {
             restrict: 'EA',
             templateUrl: 'items-table/items-table.template.html',
-            controller: function MyController() {
-                this.items = [
+            controller: function MyController($scope) {
+                $scope.items = [
                     {
                         key: 'aaa',
                         name: 'bbb'
