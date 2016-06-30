@@ -1,13 +1,10 @@
-angular.
-    module('popupButton')
+angular
+    .module('popupButton')
     .directive('popupButton', function() {
         return {
             restrict: 'EA',
-            template:
-            '<div>' +
-                '<a class="button" href="#" ">Pop up</a>' +
-            '</div>',
-            controller: ['$scope', function MyController($scope) {
+            templateUrl: 'popup-button/popup-button.template.html',
+            controller: ['$scope', function ($scope) {
                 var self = this;
                 //$ctrl = this;
                 /*self.openPopup = function openPopup() {

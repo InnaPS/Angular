@@ -1,4 +1,8 @@
-<div id="flex-container" ng-if="true">
+<div popup-button></div>
+
+<div items-table></div>
+
+<div id="flex-container" ng-if="status">
     <div id="popup">
         <header>
             <div id="logo">
@@ -14,7 +18,7 @@
                 <li><a href="#">Contacts</a></li>
             </ul>
         </footer>
-        <div class="close_popup" >&#9746;</div>
+        <div class="close_popup" ng-click="closePopup()">&#9746;</div>
     </div>
 
     <div id="overlay"></div>
