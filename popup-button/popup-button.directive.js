@@ -3,14 +3,18 @@ angular
     .directive('popupButton', function() {
         return {
             restrict: 'EA',
+            scope: {
+                openPopup: '&'
+            },
             templateUrl: 'popup-button/popup-button.template.html',
             controller: ['$scope', function ($scope) {
-                var self = this;
-                //$ctrl = this;
-                /*self.openPopup = function openPopup() {
-                 //console.log(self.parent.status);
-                 //self.parent.status = true;
-                 };*/
-            }]
+
+            }],
+            replace: true,
+            link: function(scope, elm, attrs) {
+                scope.callOpen = function() {
+                    scope.openPopup()(true);
+                }
+            }
         }
     });

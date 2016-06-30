@@ -3,8 +3,24 @@ angular
     .directive('myContainer', function () {
         return {
             restrict: 'EA',
-            templateUrl:  'container/my-container.html',
+            templateUrl:  'my-container/my-container.template.html',
             controller: function($scope) {
+                $scope.items = [
+                    {
+                        key: 'aaa',
+                        name: 'bbb'
+                    },  {
+                        key: 'aaa1',
+                        name: 'bbb1'
+                    },  {
+                        key: 'aaa2',
+                        name: 'bbb2'
+                    },
+                    {
+                        key: 'aaa3',
+                        name: 'bbb3'
+                    }
+                ];
                 $scope.status = false;
                 $scope.openPopup = function() {
                     $scope.status = true;
