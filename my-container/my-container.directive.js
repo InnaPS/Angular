@@ -22,8 +22,8 @@ angular
                     }
                 ];
                 $scope.status = false;
-                $scope.openPopup = function() {
-                    $scope.status = true;
+                $scope.openPopup = function(msg) {
+                    $scope.status = msg;
                 };
                 $scope.closePopup = function() {
                     $scope.status = false;
