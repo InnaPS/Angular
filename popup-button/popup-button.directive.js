@@ -13,7 +13,7 @@ angular
             replace: true,
             link: function(scope, elm, attrs) {
                 scope.callOpen = function() {
-                    scope.openPopup()(true);
+                    scope.openPopup()('true');
                 }
             }
         }
