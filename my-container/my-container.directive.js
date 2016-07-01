@@ -21,13 +21,13 @@ angular
                         name: 'bbb3'
                     }
                 ];
-                $scope.status = false;
+                //$scope.status = false;
                 $scope.openPopup = function(msg) {
                     $scope.status = msg;
                 };
-                $scope.closePopup = function() {
+                /*$scope.closePopup = function() {
                     $scope.status = false;
-                };
+                };*/
             }
 
         }
