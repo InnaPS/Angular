@@ -22,8 +22,10 @@ angular
                     }
                 ];
                 //$scope.status = false;
-                $scope.openPopup = function(msg) {
+                $scope.openPopup = function(msg, data) {
                     $scope.status = msg;
+                    $scope.popupData = data;
+                    console.log($scope.popupData);
                 };
                 /*$scope.closePopup = function() {
                     $scope.status = false;
