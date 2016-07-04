@@ -1,0 +1,21 @@
+<div id="flex-container" ng-if="status">
+    <div id="popup">
+        <header>
+            <div id="logo">
+                <span>&#9884;</span> Test Popup
+            </div>
+        </header>
+        <div id="clear"></div>
+        <ng-transclude><items-table></items-table></ng-transclude>
+        <footer>
+            <ul>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Order</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </footer>
+        <div class="close_popup" ng-click="closeModalWindow()">&#9746;</div>
+    </div>
+
+    <div id="overlay"></div>
+</div>
