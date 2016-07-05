@@ -1,3 +1,12 @@
+<h1>Graphs App</h1>
+
+<svg height="500" ng-attr-width="{{ 500 }}">
+    <circle ng-attr-cx="450" ng-attr-cy="350" ng-attr-r="{{ graphs[0].links.length * 30 }}" ng-attr-fill="{{ graphs[0].color }}" />
+</svg>
+
+
+
+<br/><br/>
 <popup-button open-popup="openPopup" popupdata="<items-table></items-table>"></popup-button>
 
 <div items-table></div>
