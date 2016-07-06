@@ -4,6 +4,7 @@ angular
         return {
             restrict: 'EA',
             templateUrl:  'my-container/my-container.template.html',
+            templateNamespace: 'svg',
             controller: function($scope, $http) {
                 $scope.items = [
                     {
@@ -96,12 +97,21 @@ angular
                         "color":"coral"
                     }
                 ];
-
-                $scope.drawDefault = function(){
-
+            },
+            link: function(scope, element, attr)
+            {
+                scope.add_circle = function (){
+                    var area = angular.element( document.querySelector("#draw_area") );
+                    var namespace = "http://www.w3.org/2000/svg";
+                    var name = "circle";
+                    var attributes = {cx: 50, cy:50, r: $scope.graphs[0].links.length * 30, fill: 'red'};
+                    var svg_element = document.createElementNS(namespace, name);
+                    for (var attr in attributes)
+                        svg_element.setAttribute(attr, attributes[attr])
+                    area.append(svg_element);
+                    alert("Circle appended!")
                 };
-            }/*,
-            templateNamespace: 'svg'*/
+            }
 
         }
     });
