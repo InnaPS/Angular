@@ -35,9 +35,8 @@ angular
                     $scope.graphs = response.data.graphObjs;
                     console.log($scope.graphs);
                 });*/
-                $scope.graphs = [
-                    {
-                        "id":"001",
+                $scope.graphs = {
+                    "001": {
                         "links":[
                             "003",
                             "004",
@@ -45,16 +44,14 @@ angular
                         ],
                         "color":"#a4f1ec"
                     },
-                    {
-                        "id":"002",
+                    "002": {
                         "links":[
                             "003",
                             "005"
                         ],
                         "color":"green"
                     },
-                    {
-                        "id":"003",
+                    "003": {
                         "links":[
                             "001",
                             "002",
@@ -63,31 +60,27 @@ angular
                         ],
                         "color":"red"
                     },
-                    {
-                        "id":"004",
+                    "004": {
                         "links":[
                             "001"
                         ],
-                        "color":"blue"
+                        "color":"brown"
                     },
-                    {
-                        "id":"005",
+                    "005": {
                         "links":[
                             "002",
                             "007"
                         ],
                         "color":"teal"
                     },
-                    {
-                        "id":"006",
+                    "006": {
                         "links":[
                             "003",
                             "007"
                         ],
                         "color":"pink"
                     },
-                    {
-                        "id":"007",
+                    "007": {
                         "links":[
                             "001",
                             "003",
@@ -96,7 +89,7 @@ angular
                         ],
                         "color":"coral"
                     }
-                ];
+                };
                 $scope.dimensions = {
                     clientWidth: document.documentElement.clientWidth,
                     clientHeight: document.documentElement.clientHeight
@@ -107,23 +100,32 @@ angular
                         clientHeight: document.documentElement.clientHeight
                     };
                 };
-                $scope.renderLinks = function() {
-                    alert(111);
-                };
-            }/*,
-            link: function(scope, element, attr)
-            {
-                scope.add_circle = function (){
-                    var area = angular.element( document.querySelector("#draw_area") );
+
+            },
+            link: function(scope, element, attrs) {
+                scope.renderLinks = function (obj){
+                    var area = angular.element( document.querySelector("svg") );
                     var namespace = "http://www.w3.org/2000/svg";
-                    var name = "circle";
-                    var attributes = {cx: 50, cy:50, r: $scope.graphs[0].links.length * 30, fill: 'red'};
-                    var svg_element = document.createElementNS(namespace, name);
-                    for (var attr in attributes)
-                        svg_element.setAttribute(attr, attributes[attr])
-                    area.append(svg_element);
-                    alert("Circle appended!")
+                    var id = obj.target.attributes.data.value;
+
+                    var graphLinks = $scope.graphs[id].links;
+                    for (var i = 0; i < graphLinks.length; i++) {
+
+                        var name = "circle";
+                        var svg_element = document.createElementNS(namespace, name);
+                        var attributes = {
+                            cx: $scope.graphs[graphLinks[i]].links.length * 30 * 2 + i * 30,
+                            cy: $scope.graphs[graphLinks[i]].links.length * 30 * 2 + i * 30,
+                            r: $scope.graphs[graphLinks[i]].links.length * 30,
+                            fill: $scope.graphs[graphLinks[i]].color};
+                        for (var attr in attributes)
+                            svg_element.setAttribute(attr, attributes[attr])
+                        area.append(svg_element);
+                    }
+
+
+
                 };
-            }*/
+            }
         }
     });

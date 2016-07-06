@@ -1,20 +1,25 @@
 <h1>Graphs App</h1>
 
-
-
 <svg xmlns="http://www.w3.org/2000/svg"
      ng-attr-width="{{ dimensions.clientWidth }}"
      ng-attr-height="{{ dimensions.clientHeight }}">
 
-    <circle ng-attr-id="{{ graphs[0].id }}"
+    <circle data="{{'001'}}"
             ng-attr-cx="{{ dimensions.clientWidth / 2}}"
             ng-attr-cy="{{ dimensions.clientHeight / 2 }}"
-            ng-attr-r="{{ graphs[0].links.length * 30}}"
-            ng-attr-fill="{{ graphs[0].color }}"
-            ng-click="renderLinks()">
+            ng-attr-r="{{ graphs['001'].links.length * 30}}"
+            ng-attr-fill="{{ graphs['001'].color }}"
+            ng-click="renderLinks($event)">
     </circle>
 
-
+    <!--<circle ng-repeat="graph in graphs[0].links"
+            ng-attr-id="{{ graphs[graph].id }}"
+            ng-attr-cx="{{ 20 + $index *30}}"
+            ng-attr-cy="{{ 20 + $index *20}}"
+            ng-attr-r="{{ 3 + $index *20 }}"
+            ng-attr-fill="{{ 'blue' }}"
+            ng-click="renderLinks()">
+    </circle>-->
 
 
 </svg>
