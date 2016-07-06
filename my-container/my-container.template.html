@@ -1,10 +1,12 @@
 <h1>Graphs App</h1>
 
-<svg height="500" width="{{ 500 }}">
-    <circle cx="300" cy="350" r="{{ graphs[0].links.length * 30 }}" fill="{{ graphs[0].color }}" />
-    <circle cx="200" cy="250" r="{{ graphs[2].links.length * 30 }}" fill="{{ graphs[2].color }}" />
+<svg xmlns="http://www.w3.org/2000/svg" ng-attr-width="{{ 500 }}" height="300">
+    <circle cx ="110" cy ="110" ng-attr-r ="{{ graphs[0].links.length * 30}}" fill="{{ graphs[0].color }}" ></circle>
+
 </svg>
 
+<svg id="draw_area" width="200" height="200"></svg>
+<button ng-click="add_circle()">Click</button>
 
 
 <br/><br/>
