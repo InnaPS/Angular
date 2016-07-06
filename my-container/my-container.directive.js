@@ -114,10 +114,12 @@ angular
                         var name = "circle";
                         var svg_element = document.createElementNS(namespace, name);
                         var attributes = {
+                            data: graphLinks[i],
                             cx: $scope.graphs[graphLinks[i]].links.length * 30 * 2 + i * 30,
                             cy: $scope.graphs[graphLinks[i]].links.length * 30 * 2 + i * 30,
                             r: $scope.graphs[graphLinks[i]].links.length * 30,
-                            fill: $scope.graphs[graphLinks[i]].color};
+                            fill: $scope.graphs[graphLinks[i]].color
+                            };
                         for (var attr in attributes)
                             svg_element.setAttribute(attr, attributes[attr])
                         area.append(svg_element);
