@@ -1,13 +1,28 @@
 <h1>Graphs App</h1>
 
-<svg xmlns="http://www.w3.org/2000/svg" ng-attr-width="{{ 500 }}" height="300">
-    <circle cx ="110" cy ="110" ng-attr-r ="{{ graphs[0].links.length * 30}}" fill="{{ graphs[0].color }}" ></circle>
+
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     ng-attr-width="{{ dimensions.clientWidth }}"
+     ng-attr-height="{{ dimensions.clientHeight }}">
+
+    <circle ng-attr-id="{{ graphs[0].id }}"
+            ng-attr-cx="{{ dimensions.clientWidth / 2}}"
+            ng-attr-cy="{{ dimensions.clientHeight / 2 }}"
+            ng-attr-r="{{ graphs[0].links.length * 30}}"
+            ng-attr-fill="{{ graphs[0].color }}"
+            ng-click="renderLinks()">
+    </circle>
+
+
+
 
 </svg>
 
-<svg id="draw_area" width="200" height="200"></svg>
-<button ng-click="add_circle()">Click</button>
 
+
+<!--<svg id="draw_area" width="200" height="200"></svg>
+<button ng-click="add_circle()">Click</button>-->
 
 <br/><br/>
 <popup-button open-popup="openPopup" popupdata="<items-table></items-table>"></popup-button>

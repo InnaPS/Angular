@@ -43,7 +43,7 @@ angular
                             "004",
                             "007"
                         ],
-                        "color":"yellow"
+                        "color":"#a4f1ec"
                     },
                     {
                         "id":"002",
@@ -97,7 +97,20 @@ angular
                         "color":"coral"
                     }
                 ];
-            },
+                $scope.dimensions = {
+                    clientWidth: document.documentElement.clientWidth,
+                    clientHeight: document.documentElement.clientHeight
+                };
+                $scope.getDimensions = function() {
+                    return {
+                        clientWidth: document.documentElement.clientWidth,
+                        clientHeight: document.documentElement.clientHeight
+                    };
+                };
+                $scope.renderLinks = function() {
+                    alert(111);
+                };
+            }/*,
             link: function(scope, element, attr)
             {
                 scope.add_circle = function (){
@@ -111,7 +124,6 @@ angular
                     area.append(svg_element);
                     alert("Circle appended!")
                 };
-            }
-
+            }*/
         }
     });

@@ -1,9 +1,12 @@
 body {
-    overflow: hidden;
+    overflow: auto;
     font-family: "Century Gothic", sans-serif;
 }
 h1 {
 
+}
+circle {
+    cursor: pointer;
 }
 div a.button {
     text-decoration: none;
