@@ -5,7 +5,7 @@ angular
             restrict: 'EA',
             templateUrl:  'my-container/my-container.template.html',
             templateNamespace: 'svg',
-            controller: function($scope, $http) {
+            controller: function($scope, $http, $timeout) {
                 $scope.items = [
                     {
                         key: 'aaa',
@@ -101,9 +101,25 @@ angular
                     };
                 };
                 $scope.sayHi = function () {
+                    $timeout(function () {
                     alert('hi');
+                    });
                 };
                 $scope.renderLinks = function (obj){
+                    if ($scope.clicked) {
+                        $scope.cancelClick = true;
+                        return;
+                    }
+
+                    $scope.clicked = true;
+
+                    $timeout(function () {
+                        if ($scope.cancelClick) {
+                            $scope.cancelClick = false;
+                            $scope.clicked = false;
+                            return;
+                        }
+
                     var id = obj ? obj.target.attributes.data.value : '001';
                     var graphLinks = $scope.graphs[id].links;
                     console.log(graphLinks);
@@ -125,6 +141,11 @@ angular
                             fill: $scope.graphs[graphLinks[i]].color
                         });
                     }
+
+
+                        $scope.cancelClick = false;
+                        $scope.clicked = false;
+                    }, 500);
                 }; // end render
 
 
