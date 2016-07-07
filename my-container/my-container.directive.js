@@ -101,33 +101,31 @@ angular
                     };
                 };
 
-            },
-            link: function(scope, element, attrs) {
-                scope.renderLinks = function (obj){
-                    var area = angular.element( document.querySelector("svg") );
-                    var namespace = "http://www.w3.org/2000/svg";
-                    var id = obj.target.attributes.data.value;
-
+                $scope.renderLinks = function (obj){
+                    var id = obj ? obj.target.attributes.data.value : '001';
                     var graphLinks = $scope.graphs[id].links;
-                    for (var i = 0; i < graphLinks.length; i++) {
+                    console.log(graphLinks);
 
-                        var name = "circle";
-                        var svg_element = document.createElementNS(namespace, name);
-                        var attributes = {
+                    $scope.linksArray = [];
+                    $scope.linksArray.push({
+                        data: id,
+                        cx: $scope.dimensions.clientWidth / 2,
+                        cy: $scope.dimensions.clientHeight / 2,
+                        r: $scope.graphs[id].links.length * 30,
+                        fill: $scope.graphs[id].color
+                    });
+                    for (var i = 0; i < graphLinks.length; i++) {
+                        $scope.linksArray.push({
                             data: graphLinks[i],
-                            cx: $scope.graphs[graphLinks[i]].links.length * 30 * 2 + i * 30,
+                            cx: $scope.graphs[graphLinks[i]].links.length * 30 * 3 + i * 80,
                             cy: $scope.graphs[graphLinks[i]].links.length * 30 * 2 + i * 30,
                             r: $scope.graphs[graphLinks[i]].links.length * 30,
                             fill: $scope.graphs[graphLinks[i]].color
-                            };
-                        for (var attr in attributes)
-                            svg_element.setAttribute(attr, attributes[attr])
-                        area.append(svg_element);
+                        });
                     }
+                }; // end render
 
 
-
-                };
             }
         }
     });

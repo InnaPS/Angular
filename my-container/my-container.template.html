@@ -1,15 +1,20 @@
 <h1>Graphs App</h1>
 
+<p>Click here to see the graphs</p>
+<button ng-click="renderLinks()">Click Here</button>
+
 <svg xmlns="http://www.w3.org/2000/svg"
      ng-attr-width="{{ dimensions.clientWidth }}"
      ng-attr-height="{{ dimensions.clientHeight }}">
 
-    <circle data="{{'001'}}"
-            ng-attr-cx="{{ dimensions.clientWidth / 2}}"
-            ng-attr-cy="{{ dimensions.clientHeight / 2 }}"
-            ng-attr-r="{{ graphs['001'].links.length * 30}}"
-            ng-attr-fill="{{ graphs['001'].color }}"
-            ng-click="renderLinks($event)">
+    <circle ng-repeat="graph in linksArray"
+            data="{{ graph.data }}"
+            ng-attr-cx="{{ graph.cx }}"
+            ng-attr-cy="{{ graph.cy }}"
+            ng-attr-r="{{ graph.r }}"
+            ng-attr-fill="{{ graph.fill }}"
+            ng-click="renderLinks($event)"
+            ng-dblclick="">
     </circle>
 
 
