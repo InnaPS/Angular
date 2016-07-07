@@ -13,28 +13,22 @@
             ng-attr-cy="{{ graph.cy }}"
             ng-attr-r="{{ graph.r }}"
             ng-attr-fill="{{ graph.fill }}"
-            ng-click="renderLinks($event)"
-            ng-dblclick="sayHi()">
+            ng-click="sglclickFunc($event)"
+            ng-dblclick="dblclickFunc()">
     </circle>
 
 
 </svg>
 
 
-
-<!--<svg id="draw_area" width="200" height="200"></svg>
-<button ng-click="add_circle()">Click</button>-->
-
 <br/><br/>
+
+<div popup-window></div>
+
+
 <popup-button open-popup="openPopup" popupdata="<items-table></items-table>"></popup-button>
 
 <div items-table></div>
 
 <popup-button open-popup="openPopup" popupdata="<p>Lorem Ipsum</p>"></popup-button>
-
-<div popup-window></div>
-
-
-
-
 

@@ -23,11 +23,6 @@ angular
                     }
                 ];
                 //$scope.status = false;
-                $scope.openPopup = function(msg, data) {
-                    $scope.status = msg;
-                    $scope.popupData = data;
-                    console.log($scope.popupData);
-                };
                 /*$scope.closePopup = function() {
                     $scope.status = false;
                 };*/
@@ -100,30 +95,15 @@ angular
                         clientHeight: document.documentElement.clientHeight
                     };
                 };
-                $scope.sayHi = function () {
-                    $timeout(function () {
-                    alert('hi');
-                    });
+                $scope.openPopup = function(msg, data) {
+                    $scope.status = msg;
+                    $scope.popupData = data;
+                    console.log($scope.popupData);
                 };
                 $scope.renderLinks = function (obj){
-                    if ($scope.clicked) {
-                        $scope.cancelClick = true;
-                        return;
-                    }
-
-                    $scope.clicked = true;
-
-                    $timeout(function () {
-                        if ($scope.cancelClick) {
-                            $scope.cancelClick = false;
-                            $scope.clicked = false;
-                            return;
-                        }
-
                     var id = obj ? obj.target.attributes.data.value : '001';
                     var graphLinks = $scope.graphs[id].links;
                     console.log(graphLinks);
-
                     $scope.linksArray = [];
                     $scope.linksArray.push({
                         data: id,
@@ -141,13 +121,30 @@ angular
                             fill: $scope.graphs[graphLinks[i]].color
                         });
                     }
-
+                }; // end render
+                $scope.sglclickFunc = function(e) {
+                    if ($scope.clicked) {
+                        $scope.cancelClick = true;
+                        return;
+                    }
+                    $scope.clicked = true;
+                    $timeout(function () {
+                        if ($scope.cancelClick) {
+                            $scope.cancelClick = false;
+                            $scope.clicked = false;
+                            return;
+                        }
+                    $scope.renderLinks(e);
 
                         $scope.cancelClick = false;
                         $scope.clicked = false;
-                    }, 500);
-                }; // end render
-
+                    }, 300);
+                };
+                $scope.dblclickFunc = function () {
+                    $timeout(function () {
+                        $scope.openPopup(true);
+                    });
+                };
 
             }
         }
