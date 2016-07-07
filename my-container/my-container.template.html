@@ -1,7 +1,7 @@
 <h1>Graphs App</h1>
 
 <p>Click here to see the graphs</p>
-<button ng-click="renderLinks()">Click Here</button>
+<a class="button" href="#" ng-click="renderLinks()">Click Here</a>
 
 <svg xmlns="http://www.w3.org/2000/svg"
      ng-attr-width="{{ dimensions.clientWidth }}"
@@ -14,7 +14,7 @@
             ng-attr-r="{{ graph.r }}"
             ng-attr-fill="{{ graph.fill }}"
             ng-click="renderLinks($event)"
-            ng-dblclick="">
+            ng-dblclick="sayHi()">
     </circle>
 
 

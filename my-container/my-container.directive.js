@@ -100,7 +100,9 @@ angular
                         clientHeight: document.documentElement.clientHeight
                     };
                 };
-
+                $scope.sayHi = function () {
+                    alert('hi');
+                };
                 $scope.renderLinks = function (obj){
                     var id = obj ? obj.target.attributes.data.value : '001';
                     var graphLinks = $scope.graphs[id].links;
