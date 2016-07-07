@@ -9,10 +9,10 @@
         <th></th>
     </thead>
     <tbody>
-        <tr ng-repeat="obj in items">
+        <tr ng-repeat="(key, value) in graphs[graphId]">
             <td>{{$index + 1}}</td>
-            <td title="{{ obj.key }}">{{ obj.key }}</td>
-            <td title="{{ obj.name }}">{{ obj.name }}</td>
+            <td title="{{ key }}">{{ key }}</td>
+            <td title="{{ value }}">{{ value }}</td>
             <td>x</td>
         </tr>
         <tr>

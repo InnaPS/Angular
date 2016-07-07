@@ -22,10 +22,6 @@ angular
                         name: 'bbb3'
                     }
                 ];
-                //$scope.status = false;
-                /*$scope.closePopup = function() {
-                    $scope.status = false;
-                };*/
                 /*$http.get("graphs.json").then(function(response){
                     $scope.graphs = response.data.graphObjs;
                     console.log($scope.graphs);
@@ -97,8 +93,8 @@ angular
                 };
                 $scope.openPopup = function(msg, data) {
                     $scope.status = msg;
-                    $scope.popupData = data;
-                    console.log($scope.popupData);
+                    $scope.graphId = data.target.attributes.data.value;
+                    console.log($scope.graphId);
                 };
                 $scope.renderLinks = function (obj){
                     var id = obj ? obj.target.attributes.data.value : '001';
@@ -140,9 +136,9 @@ angular
                         $scope.clicked = false;
                     }, 300);
                 };
-                $scope.dblclickFunc = function () {
+                $scope.dblclickFunc = function (e) {
                     $timeout(function () {
-                        $scope.openPopup(true);
+                        $scope.openPopup(true, e);
                     });
                 };
 
