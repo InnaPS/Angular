@@ -1,1 +1,21 @@
-<p>Here is information for the graph... {{  }}</p>
+<p>Here is information for the graph... {{ 11 }}</p>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+     ng-attr-width="{{ dimensions.clientWidth }}"
+     ng-attr-height="{{ dimensions.clientHeight }}">
+
+    <a xlink:href="#/graph">
+        <circle ng-repeat="graph in linksArray"
+                data="{{ graph.data }}"
+                ng-attr-cx="{{ graph.cx }}"
+                ng-attr-cy="{{ graph.cy }}"
+                ng-attr-r="{{ graph.r }}"
+                ng-attr-fill="{{ graph.fill }}"
+                href="#/graph/{{ $index }}"
+                ng-click="sglclickFunc($event)"
+                ng-dblclick="dblclickFunc($event)"
+                >
+        </circle>
+    </a>
+
+</svg>

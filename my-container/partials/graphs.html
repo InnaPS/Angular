@@ -1,7 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg"
+<!--<a class="button" href="#/graph">Graph</a>-->
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
      ng-attr-width="{{ dimensions.clientWidth }}"
      ng-attr-height="{{ dimensions.clientHeight }}">
 
+    <a xlink:href="#/graph">
     <circle ng-repeat="graph in linksArray"
             data="{{ graph.data }}"
             ng-attr-cx="{{ graph.cx }}"
@@ -13,6 +16,6 @@
             ng-dblclick="dblclickFunc($event)"
             >
     </circle>
-
+    </a>
 
 </svg>

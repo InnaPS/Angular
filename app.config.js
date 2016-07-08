@@ -8,14 +8,14 @@ angular
             .when('/graphs', {
                 templateUrl: 'my-container/partials/graphs.html'
             })
-            .when('graph/:id', {
-                templateUrl: 'my-container/partials/graph.html',
-                controller: 'graphCtrl'
+            .when('/graph', {
+                templateUrl: 'my-container/partials/graph.html'
+                //controller: 'graphCtrl'
             })
             .otherwise({
                 redirectTo: '/'
             })
-    })
-    .controller('graphCtrl', function($scope) {
-
     });
+    /*.controller('graphCtrl', function($scope, $location, $routeParams) {
+        $scope.graph = $routeParams.id;
+    });*/
