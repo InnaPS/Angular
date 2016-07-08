@@ -1,34 +1,12 @@
 <h1>Graphs App</h1>
 
-<p>Click here to see the graphs</p>
-<a class="button" href="#" ng-click="renderLinks()">Click Here</a>
-
-<svg xmlns="http://www.w3.org/2000/svg"
-     ng-attr-width="{{ dimensions.clientWidth }}"
-     ng-attr-height="{{ dimensions.clientHeight }}">
-
-    <circle ng-repeat="graph in linksArray"
-            data="{{ graph.data }}"
-            ng-attr-cx="{{ graph.cx }}"
-            ng-attr-cy="{{ graph.cy }}"
-            ng-attr-r="{{ graph.r }}"
-            ng-attr-fill="{{ graph.fill }}"
-            ng-click="sglclickFunc($event)"
-            ng-dblclick="dblclickFunc($event)">
-    </circle>
-
-
-</svg>
-
-
-<br/><br/>
+<div ng-view></div>
 
 <div popup-window></div>
 
 
-<popup-button open-popup="openPopup" popupdata="<items-table></items-table>"></popup-button>
+<!--<popup-button open-popup="openPopup" popupdata="<items-table></items-table>"></popup-button>
 
 <div items-table></div>
 
-<popup-button open-popup="openPopup" popupdata="<p>Lorem Ipsum</p>"></popup-button>
-
+<popup-button open-popup="openPopup" popupdata="<p>Lorem Ipsum</p>"></popup-button>-->

@@ -130,7 +130,7 @@ angular
                             $scope.clicked = false;
                             return;
                         }
-                    $scope.renderLinks(e);
+                        $scope.renderLinks(e);
 
                         $scope.cancelClick = false;
                         $scope.clicked = false;
