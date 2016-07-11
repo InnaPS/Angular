@@ -5,17 +5,14 @@ angular
             .when('/', {
                 templateUrl: 'my-container/partials/default.html'
             })
-            .when('/graphs', {
-                templateUrl: 'my-container/partials/graphs.html'
-            })
-            .when('/graph', {
-                templateUrl: 'my-container/partials/graph.html'
-                //controller: 'graphCtrl'
+            .when('/graph/:id', {
+                templateUrl: 'my-container/partials/graph.html',
+                controller: 'graphCtrl'
             })
             .otherwise({
                 redirectTo: '/'
             })
+    })
+    .controller('graphCtrl', function($scope, $location, $routeParams) {
+        $scope.graph_Id = $routeParams.id;
     });
-    /*.controller('graphCtrl', function($scope, $location, $routeParams) {
-        $scope.graph = $routeParams.id;
-    });*/

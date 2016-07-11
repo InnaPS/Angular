@@ -99,7 +99,7 @@ angular
                 $scope.renderLinks = function (obj){
                     var id = obj ? obj.target.attributes.data.value : '001';
                     var graphLinks = $scope.graphs[id].links;
-                    console.log(graphLinks);
+                    //console.log(graphLinks);
                     $scope.linksArray = [];
                     $scope.linksArray.push({
                         data: id,
@@ -108,6 +108,7 @@ angular
                         r: $scope.graphs[id].links.length * 30,
                         fill: $scope.graphs[id].color
                     });
+                    console.log($scope.linksArray[0].data);
                     for (var i = 0; i < graphLinks.length; i++) {
                         $scope.linksArray.push({
                             data: graphLinks[i],
