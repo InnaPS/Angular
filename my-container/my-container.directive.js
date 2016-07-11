@@ -91,13 +91,17 @@ angular
                         clientHeight: document.documentElement.clientHeight
                     };
                 };
-                $scope.openPopup = function(msg, data) {
+                $scope.openPopup = function(msg, dblClickEvent) {
                     $scope.status = msg;
-                    $scope.graphId = data.target.attributes.data.value;
+                    $scope.graphId = dblClickEvent.target.attributes.data.value;
                     console.log($scope.graphId);
                 };
-                $scope.renderLinks = function (obj){
-                    var id = obj ? obj.target.attributes.data.value : '001';
+                $scope.getGraphId = function(sglClickEvent) {
+                    var id = sglClickEvent ? sglClickEvent.target.attributes.data.value : '001';
+                    return id;
+                };
+                $scope.renderLinks = function (id){
+                    var id = id ? id : '001';
                     var graphLinks = $scope.graphs[id].links;
                     //console.log(graphLinks);
                     $scope.linksArray = [];
@@ -108,7 +112,6 @@ angular
                         r: $scope.graphs[id].links.length * 30,
                         fill: $scope.graphs[id].color
                     });
-                    console.log($scope.linksArray[0].data);
                     for (var i = 0; i < graphLinks.length; i++) {
                         $scope.linksArray.push({
                             data: graphLinks[i],
@@ -119,29 +122,7 @@ angular
                         });
                     }
                 }; // end render
-                $scope.sglclickFunc = function(e) {
-                    if ($scope.clicked) {
-                        $scope.cancelClick = true;
-                        return;
-                    }
-                    $scope.clicked = true;
-                    $timeout(function () {
-                        if ($scope.cancelClick) {
-                            $scope.cancelClick = false;
-                            $scope.clicked = false;
-                            return;
-                        }
-                        $scope.renderLinks(e);
 
-                        $scope.cancelClick = false;
-                        $scope.clicked = false;
-                    }, 300);
-                };
-                $scope.dblclickFunc = function (e) {
-                    $timeout(function () {
-                        $scope.openPopup(true, e);
-                    });
-                };
 
             }
         }

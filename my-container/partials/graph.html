@@ -1,4 +1,4 @@
-<p>Here is information for the graph... {{ graph_Id }}</p>
+<p>Here is information for the graph... {{ circle_Id }}</p>
 
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
@@ -12,11 +12,12 @@
                 ng-attr-cy="{{ graph.cy }}"
                 ng-attr-r="{{ graph.r }}"
                 ng-attr-fill="{{ graph.fill }}"
-                href="#/graph/{{ graph.data }}"
-                ng-click="sglclickFunc($event)"
-                ng-dblclick="dblclickFunc($event)"
+
+
+                ng-dblclick="openPopup(true, $event)"
                 >
         </circle>
     </a>
     </g>
 </svg>
+

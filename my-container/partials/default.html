@@ -14,9 +14,8 @@
                     ng-attr-cy="{{ graph.cy }}"
                     ng-attr-r="{{ graph.r }}"
                     ng-attr-fill="{{ graph.fill }}"
-                    href="#/graph/{{ graph.data }}"
-                    ng-click="sglclickFunc($event)"
-                    ng-dblclick="dblclickFunc($event)"
+
+                    ng-dblclick="openPopup(true, $event)"
                     >
             </circle>
         </a>
