@@ -4,20 +4,32 @@
      xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
      ng-attr-width="{{ dimensions.clientWidth }}"
      ng-attr-height="{{ dimensions.clientHeight }}" >
+
+
     <g ng-repeat="graph in linksArray">
-    <a xlink:href="" data-ng-href="{{ '#/graph/' + graph.data }}" >
-        <circle
-                data="{{ graph.data }}"
-                ng-attr-cx="{{ graph.cx }}"
-                ng-attr-cy="{{ graph.cy }}"
-                ng-attr-r="{{ graph.r }}"
-                ng-attr-fill="{{ graph.fill }}"
+        <a xlink:href="" data-ng-href="{{ '#/graph/' + graph.data }}" >
+            <circle
+                    data="{{ graph.data }}"
+                    ng-attr-cx="{{ graph.cx }}"
+                    ng-attr-cy="{{ graph.cy }}"
+                    ng-attr-r="{{ graph.r }}"
+                    ng-attr-fill="{{ graph.fill }}"
 
 
-                ng-dblclick="openPopup(true, $event)"
-                >
-        </circle>
-    </a>
+                    ng-dblclick="openPopup(true, $event)"
+                    >
+            </circle>
+        </a>
+    </g>
+
+    <g ng-repeat="line in lines">
+        <line ng-attr-x1="{{ line.x1 }}"
+              ng-attr-y1="{{ line.y1 }}"
+              ng-attr-x2="{{ line.x2 }}"
+              ng-attr-y2="{{ line.y2 }}"
+              style="{{ line.style }}">
+
+        </line>
     </g>
 </svg>
 

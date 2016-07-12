@@ -121,6 +121,16 @@ angular
                             fill: $scope.graphs[graphLinks[i]].color
                         });
                     }
+                    $scope.lines = [];
+                    for (var j = 1; j < $scope.linksArray.length; j++) {
+                        $scope.lines.push({
+                            x1: $scope.linksArray[0].cx,
+                            y1: $scope.linksArray[0].cy,
+                            x2: $scope.linksArray[j].cx,
+                            y2: $scope.linksArray[j].cy,
+                            style: 'stroke:rgb(130,130,130);stroke-width:2'
+                        });
+                    }
                 }; // end render
 
 
