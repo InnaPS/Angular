@@ -85,39 +85,40 @@ angular
                     clientWidth: document.documentElement.clientWidth,
                     clientHeight: document.documentElement.clientHeight
                 };
-                $scope.getDimensions = function() {
-                    return {
-                        clientWidth: document.documentElement.clientWidth,
-                        clientHeight: document.documentElement.clientHeight
-                    };
+                $scope.radius = ($scope.dimensions.clientWidth > $scope.dimensions.clientHeight) ?
+                    $scope.dimensions.clientHeight / 2 :
+                    $scope.dimensions.clientWidth / 2;
+                $scope.findMaxRad = function(obj, max) {
+                    for (var key in obj) {
+                        if(obj[key].links.length > max) {
+                            max = obj[key].links.length;
+                        }
+                    }
                 };
                 $scope.openPopup = function(msg, dblClickEvent) {
                     $scope.status = msg;
                     $scope.graphId = dblClickEvent.target.attributes.data.value;
-                    console.log($scope.graphId);
                 };
-                $scope.getGraphId = function(sglClickEvent) {
-                    var id = sglClickEvent ? sglClickEvent.target.attributes.data.value : '001';
-                    return id;
-                };
+
                 $scope.renderLinks = function (id){
                     var id = id ? id : '001';
                     var graphLinks = $scope.graphs[id].links;
-                    //console.log(graphLinks);
                     $scope.linksArray = [];
                     $scope.linksArray.push({
                         data: id,
                         cx: $scope.dimensions.clientWidth / 2,
                         cy: $scope.dimensions.clientHeight / 2,
-                        r: $scope.graphs[id].links.length * 30,
+                        r: $scope.graphs[id].links.length * 20,
                         fill: $scope.graphs[id].color
                     });
+                    $scope.maxRad = $scope.graphs['001'].links.length;
+                    $scope.findMaxRad($scope.graphs, $scope.maxRad);
                     for (var i = 0; i < graphLinks.length; i++) {
                         $scope.linksArray.push({
                             data: graphLinks[i],
-                            cx: $scope.graphs[graphLinks[i]].links.length * 30 * 3 + i * 80,
-                            cy: $scope.graphs[graphLinks[i]].links.length * 30 * 2 + i * 30,
-                            r: $scope.graphs[graphLinks[i]].links.length * 30,
+                            cx: $scope.dimensions.clientWidth / 2 + ($scope.radius - $scope.maxRad) * Math.cos(2 * Math.PI * (i+1) / graphLinks.length),
+                            cy: $scope.dimensions.clientWidth / 2 + ($scope.radius - $scope.maxRad) * Math.sin(2 * Math.PI * (i+1) / graphLinks.length),
+                            r: $scope.graphs[graphLinks[i]].links.length * 20,
                             fill: $scope.graphs[graphLinks[i]].color
                         });
                     }
